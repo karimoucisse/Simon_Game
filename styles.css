@@ -9,8 +9,42 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
-.cicle_Container{
+.gameOver{
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    animation: 2s reverse both running backgroundSize;
+    transform-origin: center;
+}
+@keyframes backgroundSize {
+    0% {
+        background-color: white;
+        height: 1800px;
+        width: 1800px;
+    }
+    100%{
+        background-color: red;
+    }
+
+}
+
+/* resultContainer */
+.resultContainer {
+    position: absolute;
+    top: 0;
+    padding-top: 50px;
+}
+.resultContainer p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* cicle_Container */
+#cicle_Container{
     padding: 5px;
     height: 300px;
     width: 300px;
@@ -21,6 +55,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.gameOver_animation{
+    animation: 0.3s reverse both running slide;
+}
+
+@keyframes slide {
+    0% {
+      transform: translateX(0px);
+    }
+    
+    25%{
+        transform: translateX(-10px);
+    }
+    75%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+
 }
 .circle{
     background-color: transparent;
@@ -35,7 +90,7 @@
     grid-row-gap: 10px;
     overflow: hidden;
 }
-.logo {
+#start_btn {
     position: absolute;
     height: 90px;
     width: 90px;
@@ -50,7 +105,7 @@
     font-size: 22px;
     cursor: pointer;
 }
-.logo:hover {
+#start_btn:hover {
     transform: scale(1.003);
 }
 
@@ -60,13 +115,62 @@
 .item:nth-child(1){
     /* background-color: yellow; */
     background-color: rgba(255, 255, 0, 0.6);
+    transition: all ease-in-out 0.3s;
 }
+.item:nth-child(1):hover{
+    background-color: yellow !important;
+}
+
 .item:nth-child(2){
     background-color: rgba(0, 0, 255, 0.6);
+    transition: all ease-in-out 0.3s;
 }   
+.item:nth-child(2):hover{
+    background-color: blue !important;
+}
+
 .item:nth-child(3){
     background-color: rgba(255, 0, 0, 0.6);
+    transition: all ease-in-out 0.3s;
 }
+.item:nth-child(3):hover{
+    background-color: red !important;
+}
+
 .item:nth-child(4){
-    background-color: rgba(0, 128, 0, 0.6)
+    background-color: rgba(0, 128, 0, 0.6);
+    transition: all ease-in-out 0.3s;
+}
+.item:nth-child(4):hover{
+    background-color: green !important;
+}
+
+/* NextLevelPanel */
+#NextLevelPanel{
+    width: 500px;
+    height: 200px;
+    background-color: rgb(11, 151, 11);
+    color: white;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+}
+.make_visible {
+    display: flex !important;
+}
+.make_invisible{
+    display: none !important;
+}
+#NextLevelPanel p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#NextLevelPanel button {
+    border: none;
+    padding: 10px;  
+    cursor: pointer;
 }
