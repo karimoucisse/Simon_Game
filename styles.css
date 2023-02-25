@@ -3,14 +3,19 @@
     margin: 0;
     padding: 0;
 }
+body {
+    background: url("./img/background.jpg") no-repeat center / cover;
+}
 .container {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
+    gap: 40px;
 }
 .gameOver{
     position: absolute;
@@ -32,22 +37,69 @@
 
 }
 
-/* resultContainer */
-.resultContainer {
+#life_container{
     position: absolute;
-    top: 0;
-    padding-top: 50px;
+    top: 20px;
+    right: 70px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
 }
-.resultContainer p {
+#life_container p {
+    color: red;
+    font-size: 50px;
+}
+.heart_animation{
+    animation: 2s both running heartBeat;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.3);
+    }
+    100%{
+        transform: scale(1);
+        transform: translateX(300px);
+    }
+
+}
+
+
+/* resultContainer */
+.resultContainer, #bestScore_container {
+    position: absolute;
+    top: 20px;
+    padding: 20px 50px;
+    background-color: teal;
+    border-radius: 10px;
+}
+#bestScore_container{
+    left: 70px;
+    padding: 20px 70px;
+}
+.resultContainer p, #bestScore_container p {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 20px;
+    color: white;
+    font-weight: 200;
 }
 
 /* cicle_Container */
 #cicle_Container{
     padding: 5px;
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
     padding: 10px;
     border-radius: 50%;
     background-color: black;
@@ -109,54 +161,52 @@
     transform: scale(1.003);
 }
 
+/* cercle item */
 .item {
-    
-}
-.item:nth-child(1){
-    /* background-color: yellow; */
-    background-color: rgba(255, 255, 0, 0.6);
+    cursor: pointer;
     transition: all ease-in-out 0.3s;
 }
-.item:nth-child(1):hover{
+.item:nth-child(1){
+    background-color: rgba(255, 255, 0, 0.6);
+}
+.item:nth-child(1):active{
     background-color: yellow !important;
 }
 
 .item:nth-child(2){
     background-color: rgba(0, 0, 255, 0.6);
-    transition: all ease-in-out 0.3s;
 }   
-.item:nth-child(2):hover{
+.item:nth-child(2):active{
     background-color: blue !important;
 }
 
 .item:nth-child(3){
     background-color: rgba(255, 0, 0, 0.6);
-    transition: all ease-in-out 0.3s;
 }
-.item:nth-child(3):hover{
+.item:nth-child(3):active{
     background-color: red !important;
 }
 
 .item:nth-child(4){
     background-color: rgba(0, 128, 0, 0.6);
-    transition: all ease-in-out 0.3s;
 }
-.item:nth-child(4):hover{
+.item:nth-child(4):active{
     background-color: green !important;
 }
 
 /* NextLevelPanel */
-#NextLevelPanel{
+#NextLevelPanel, #gameOverPanel{
     width: 500px;
-    height: 200px;
-    background-color: rgb(11, 151, 11);
-    color: white;
+    height: 340px;
+    background-color: #e0edd9;
+    color: #174713;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
     position: absolute;
+    border-radius: 20px;
 }
 .make_visible {
     display: flex !important;
@@ -164,13 +214,54 @@
 .make_invisible{
     display: none !important;
 }
-#NextLevelPanel p {
+#NextLevelPanel p, #gameOverPanel p {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
 
-#NextLevelPanel button {
+#NextLevelPanel button, #gameOverPanel button{
     border: none;
-    padding: 10px;  
+    padding: 14px 20px;  
     cursor: pointer;
+    background-color: #236b1d;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.2s ease-in-out;
+}
+#NextLevelPanel button:hover, #gameOverPanel button:hover{
+    transform: scale(1.01);
+}
+
+#gameOverPanel{
+    background-color: #ae130b;
+    color: white;
+    gap: 70px;
+}
+#gameOverPanel div{
+    display: flex;
+    gap: 30px;
+}
+#gameOverPanel button{
+    background-color: rgb(232, 83, 83);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn_container{
+    display: flex;
+    gap: 80px;
+}
+
+.btn_container button{
+    padding: 10px 20px;
+    border: none;
+    background-color: #1c2930;
+    color: white;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 17px;
+    transition: all 0.2s;
+}
+.btn_container button:hover {
+    transform: scale(1.01);
 }

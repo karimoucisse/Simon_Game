@@ -10,32 +10,55 @@
 <body>
     <div class="container">
         <div id="gameOverContainer"></div>
+
         <div class="resultContainer">
             <p id="level">Niveau: 1</p>
             <p id="point">Point: 0</p>
         </div>
 
+        <div id="bestScore_container">
+            <p>Top score</p>
+            </br>
+            <p>Niveau: 1</p>
+            <p>Point: 0</p>
+        </div>
+
+        <div id="life_container"></div>
+
         <div id="cicle_Container">
             <button id="start_btn">
-                <p>Simon</p>
-                <p class="counter">0</p>
+                <p>Start</p>
             </button>
             <div class="circle">
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
-                <div class="item"></div>
+                <button class="item" disabled></button>
+                <button class="item" disabled></button>
+                <button class="item" disabled></button>
+                <button class="item" disabled></button>
             </div>
         </div>
+        
+        <!-- <div class="btn_container">
+            <button>Commencer</button>
+            <button>Recommencer</button>
+        </div> -->
 
         <div id="NextLevelPanel">
             <p>Bravo tu viens de reussir ce niveau </p>
             <button id="next_level_btn">Passer au niveau suivant</button>
         </div>
 
+        <div id="gameOverPanel">
+            <p>Game Over</p>
+            <div id="gameOverBtnContainer">
+                <button id="over_btn">Recommencer le jeu</button>
+                <button id="retry_btn">Réessayer le niveau</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="./game.js" ></script>
+    <script src="./localStorage.js" ></script>
     <script src="./display.js" ></script>
     <script src="./script.js" ></script>
 </body>
